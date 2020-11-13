@@ -16,9 +16,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "npm run prettier",
-      "npm run lint:fix"
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "npm run lint:fix",
+      "npm run prettier"
     ]
   },
   "keywords": [],
