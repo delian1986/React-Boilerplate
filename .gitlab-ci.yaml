@@ -1,4 +1,4 @@
-image: node:10.19.0
+image: node:10.16.3
 
 cache:
   paths:
@@ -11,6 +11,8 @@ pages:
   stage: deploy
   script:
     - npm install
+    - npm install react
+    - npm install react-dom
     - CI=false npm run build
     - cp dist/bundle.js public
   artifacts:
