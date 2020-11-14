@@ -1,5 +1,5 @@
+import { hot } from "react-hot-loader/root";
 import { Component } from "react";
-import { hot } from "react-hot-loader";
 import "./App.css";
 
 class App extends Component {
