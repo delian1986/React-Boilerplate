@@ -4,6 +4,9 @@ cache:
   paths:
     - node_modules/
 
+variables:
+  PUBLIC_URL: /starter-pack
+
 before_script:
   - CI=false npm install
 
@@ -11,7 +14,7 @@ pages:
   stage: deploy
   script:
     - npm install
-    - CI=false npm run build
+    - npm run build
     - cp dist/bundle.js public
     - cp dist/index.html public
   artifacts:
