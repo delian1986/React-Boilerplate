@@ -1,0 +1,22 @@
+image: node:10.19.0
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - rm -rf dist
+  - CI=false npm install
+
+pages:
+  stage: deploy
+  script:
+    - CI=false npm run build
+    - rm -rf dist
+    - cp dist/index.html dist/404.html
+    - mv build dist
+  artifacts:
+    paths:
+      - dist
+  only:
+    - master
