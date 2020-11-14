@@ -5,18 +5,16 @@ cache:
     - node_modules/
 
 before_script:
-  - rm -rf dist
   - CI=false npm install
 
 pages:
   stage: deploy
   script:
+    - npm install
     - CI=false npm run build
-    - rm -rf dist
-    - cp dist/index.html dist/404.html
-    - mv build dist
+    - cp dist/bundle.js public
   artifacts:
     paths:
-      - dist
+      - public
   only:
     - master
