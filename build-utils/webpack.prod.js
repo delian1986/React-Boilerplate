@@ -8,5 +8,8 @@ module.exports = {
             path: path.resolve(__dirname, "..", "./.env.production"),
         })
     ],
+    devServer: {
+        contentBase: path.resolve(__dirname, "..", "./dist"),
+    },
     devtool: "source-map",
 };
