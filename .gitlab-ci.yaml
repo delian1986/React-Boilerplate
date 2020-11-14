@@ -11,8 +11,6 @@ pages:
   stage: deploy
   script:
     - npm install
-    - npm install react
-    - npm install react-dom
     - CI=false npm run build
     - cp dist/bundle.js public
     - cp dist/index.html public
