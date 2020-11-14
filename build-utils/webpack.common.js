@@ -1,11 +1,10 @@
 const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
-    entry: "./src/index.js",
-    mode: "development",
+    entry: path.resolve(__dirname, "..", "./src/index.js"),
     module: {
         rules: [
             {
@@ -23,22 +22,22 @@ module.exports = {
     resolve: {
         extensions: [ "*", ".js", ".jsx" ]
     },
-    output: {
-        path: path.resolve(__dirname, "dist/"),
-        filename: "bundle.js"
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "public/"),
-        port: 3000,
-        publicPath: "http://localhost:3000/dist/",
-        hot: true
-    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Starter Pack",
-            template: path.resolve(__dirname, "./src/index.html"),
+            template: path.resolve(__dirname, "..", "./src/index.html"),
         }),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    output: {
+        path: path.resolve(__dirname, "..", "./dist"),
+        filename: "bundle.js"
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, "..", "./dist"),
+        port: 3000,
+        publicPath: "http://localhost:3000/dist/",
+        hot: true
+    },
 };
