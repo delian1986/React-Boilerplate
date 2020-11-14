@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -29,12 +30,15 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, "public/"),
         port: 3000,
-        publicPath: "http://localhost:3000/dist/"
+        publicPath: "http://localhost:3000/dist/",
+        hot: true
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Starter Pack",
-            template: "./template/index.html"
-        })
+            template: path.resolve(__dirname, "./src/index.html"),
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
