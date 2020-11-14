@@ -15,6 +15,7 @@ pages:
     - npm install react-dom
     - CI=false npm run build
     - cp dist/bundle.js public
+    - cp dist/index.html public
   artifacts:
     paths:
       - public
