@@ -27,6 +27,9 @@
     "src/**/*.{js,jsx,json}": [
       "npm run lint:fix",
       "npm run prettier"
+    ],
+    "src/**/*.{css,scss}": [
+      "npm run prettier"
     ]
   },
   "devDependencies": {
