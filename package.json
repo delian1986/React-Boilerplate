@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --config build-utils/webpack.config.js --env dev",
+    "start": "webpack-dev-server --https --open --config build-utils/webpack.config.js --env dev",
     "build": "webpack --config build-utils/webpack.config.js --env prod",
     "lint": "eslint src",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
